@@ -136,8 +136,9 @@ function render() {
 添加以下代码到 `sagas.js` 模块：
 
 ```javascript
-import { delay } from 'redux-saga'
 import { put, takeEvery } from 'redux-saga/effects'
+
+export const delay = (ms) => new Promise(res => setTimeout(res, ms))
 
 // ...
 
@@ -178,6 +179,7 @@ Sagas 被实现为 [Generator functions](https://developer.mozilla.org/en-US/doc
 import { delay } from 'redux-saga'
 import { put, takeEvery, all } from 'redux-saga/effects'
 
+export const delay = (ms) => new Promise(res => setTimeout(res, ms))
 
 function* incrementAsync() {
   yield delay(1000)
